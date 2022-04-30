@@ -1,4 +1,4 @@
-module github.com/sunzo-digital/otus-go-hw/tree/master/hw01_hello_otus
+module github.com/sunzo-digital/otus-go-hw/hw01_hello_otus
 
 go 1.18
 
