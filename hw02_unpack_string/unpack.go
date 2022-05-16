@@ -47,6 +47,7 @@ func stringsToRepeat(input string) ([]string_repeat.StringToRepeat, error) {
 		if unicode.IsLetter(current) {
 			strToRepeat := string_repeat.New(string(current), 1)
 			stringsToRepeat = append(stringsToRepeat, strToRepeat)
+			prev = current
 			continue
 		}
 
@@ -63,6 +64,7 @@ func stringsToRepeat(input string) ([]string_repeat.StringToRepeat, error) {
 		}
 
 		prevStrToRepeat.SetRepeatCount(repeatCount)
+		prev = current
 	}
 
 	return stringsToRepeat, nil
