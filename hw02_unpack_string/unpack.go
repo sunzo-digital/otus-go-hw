@@ -7,7 +7,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	string_repeat "github.com/sunzo-digital/otus-go-hw/hw02_unpack_string/string-repeat"
+	strepeat "github.com/sunzo-digital/otus-go-hw/hw02_unpack_string/string-repeat"
 )
 
 var ErrInvalidString = errors.New("invalid string")
@@ -38,14 +38,14 @@ func Unpack(input string) (string, error) {
 	return strBuilder.String(), nil
 }
 
-func stringsToRepeat(input string) ([]string_repeat.StringToRepeat, error) {
-	stringsToRepeat := make([]string_repeat.StringToRepeat, utf8.RuneCountInString(input))
+func stringsToRepeat(input string) ([]strepeat.StringToRepeat, error) {
+	stringsToRepeat := make([]strepeat.StringToRepeat, utf8.RuneCountInString(input))
 
 	prev := firstRuneOfString(input)
 
 	for _, current := range input {
 		if unicode.IsLetter(current) {
-			strToRepeat := string_repeat.New(string(current), 1)
+			strToRepeat := strepeat.New(string(current), 1)
 			stringsToRepeat = append(stringsToRepeat, strToRepeat)
 			prev = current
 			continue

@@ -1,4 +1,4 @@
-package string_repeat
+package strepeat
 
 import (
 	"strings"
