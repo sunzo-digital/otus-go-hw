@@ -37,7 +37,7 @@ func Unpack(input string) (string, error) {
 }
 
 func stringsToRepeat(input string) ([]strepeat.StringToRepeat, error) {
-	var stringsToRepeat []strepeat.StringToRepeat
+	stringsToRepeat := make([]strepeat.StringToRepeat, 0, len([]rune(input)))
 
 	prev := firstRuneOfString(input)
 
