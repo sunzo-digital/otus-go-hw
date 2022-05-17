@@ -5,7 +5,6 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
-	"unicode/utf8"
 
 	strepeat "github.com/sunzo-digital/otus-go-hw/hw02_unpack_string/string-repeat"
 )
@@ -24,7 +23,6 @@ func Unpack(input string) (string, error) {
 	}
 
 	stringsToRepeat, err := stringsToRepeat(input)
-
 	if err != nil {
 		return "", err
 	}
@@ -39,7 +37,7 @@ func Unpack(input string) (string, error) {
 }
 
 func stringsToRepeat(input string) ([]strepeat.StringToRepeat, error) {
-	stringsToRepeat := make([]strepeat.StringToRepeat, utf8.RuneCountInString(input))
+	var stringsToRepeat []strepeat.StringToRepeat
 
 	prev := firstRuneOfString(input)
 
@@ -58,7 +56,6 @@ func stringsToRepeat(input string) ([]strepeat.StringToRepeat, error) {
 
 		prevStrToRepeat := &stringsToRepeat[len(stringsToRepeat)-1]
 		repeatCount, err := strconv.Atoi(string(current))
-
 		if err != nil {
 			return nil, err
 		}
