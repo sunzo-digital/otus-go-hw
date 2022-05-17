@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestUnpack(t *testing.T) {
+func TestToString(t *testing.T) {
 	tests := []struct {
 		strToRepeat StringToRepeat
 		expected    string
