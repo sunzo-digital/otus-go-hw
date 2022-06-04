@@ -79,4 +79,10 @@ func TestTop10(t *testing.T) {
 			require.Equal(t, expected, Top10(text))
 		}
 	})
+
+	// Тестирую пограничные значения. Благодаря этому тесту добавил проверку
+	// на 36 строке top.go. До этого просто возвращал первые 10 элементов
+	t.Run("single char test", func(t *testing.T) {
+		require.Equal(t, []string{"1"}, Top10("1"))
+	})
 }
