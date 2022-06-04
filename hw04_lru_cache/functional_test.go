@@ -19,7 +19,7 @@ func TestPurgeOne(t *testing.T) {
 
 	require.True(t, l.Len() == 3)
 	require.True(t, l.Front().Value.(cacheItem).value == "4 val")
-	require.True(t, l.Back().Value.(cacheItem).value == "2 val")
+	require.True(t, l.Back().Value.(cacheItem).value == "2 val") //nolint:goconst
 	require.True(t, l.Front().Next.Value.(cacheItem).value == "3 val" && l.Back().Prev.Value.(cacheItem).value == "3 val")
 	require.True(t, l.Front().Prev == nil && l.Back().Next == nil)
 }

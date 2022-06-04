@@ -115,6 +115,6 @@ func (l *list) MoveToFront(i *ListItem) {
 	l.front = i
 }
 
-func NewList() *list {
+func NewList() *list { //nolint:revive
 	return new(list)
 }
