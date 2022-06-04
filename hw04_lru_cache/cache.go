@@ -52,6 +52,7 @@ func (c *lruCache) Get(key Key) (interface{}, bool) {
 	lItem, ok := c.items[key]
 
 	if ok {
+		c.queue.MoveToFront(lItem)
 		return lItem.Value.(cacheItem).value, ok
 	}
 

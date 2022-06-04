@@ -49,8 +49,18 @@ func TestCache(t *testing.T) {
 		require.Nil(t, val)
 	})
 
-	t.Run("purge logic", func(t *testing.T) {
-		// Write me
+	t.Run("clear cache", func(t *testing.T) {
+		c := lruCache{capacity: 3, queue: NewList(), items: make(map[Key]*ListItem, 3)}
+
+		c.Set(Key("1 key"), "1 val")
+		c.Set(Key("2 key"), "2 val")
+		c.Set(Key("3 key"), "3 val")
+
+		c.Clear()
+
+		require.Len(t, c.items, 0)
+		require.Nil(t, c.queue.Front())
+		require.Nil(t, c.queue.Back())
 	})
 }
 
