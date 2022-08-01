@@ -1,7 +1,10 @@
 package main
 
 import (
+	"errors"
 	"flag"
+	"io"
+	"log"
 )
 
 var (
@@ -18,5 +21,8 @@ func init() {
 
 func main() {
 	flag.Parse()
-	// Place your code here.
+	err := Copy(from, to, offset, limit)
+	if err != nil && !errors.Is(err, io.EOF) {
+		log.Fatal(err)
+	}
 }
