@@ -1,0 +1,8 @@
+HELLO is ("hello")
+BAR is (bar)
+FOO is (   foo
+with new line)
+UNSET is ()
+ADDED is ()
+EMPTY is ()
+arguments are 
