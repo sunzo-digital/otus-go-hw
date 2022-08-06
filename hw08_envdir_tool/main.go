@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
@@ -9,10 +8,10 @@ import (
 func main() {
 	args := os.Args
 
-	environment, err := ReadDir(args[0])
+	environment, err := ReadDir(args[1])
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
-	fmt.Println(RunCmd(args[1:], environment))
+	os.Exit(RunCmd(args[2:], environment))
 }
