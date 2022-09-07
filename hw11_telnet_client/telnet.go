@@ -45,6 +45,7 @@ func (client *TelnetClient) Send() error {
 	_, err := io.Copy(client.connection, client.in)
 	return err
 }
+
 func (client *TelnetClient) Receive() error {
 	_, err := io.Copy(client.out, client.connection)
 	return err
